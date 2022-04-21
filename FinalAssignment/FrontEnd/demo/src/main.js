@@ -11,10 +11,6 @@ import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 Vue.use(ElementUI)
 
-// Global
-import Global from "./components/Global"
-Vue.prototype.GLOBAL = Global
-
 Vue.config.productionTip = false
 
 new Vue({

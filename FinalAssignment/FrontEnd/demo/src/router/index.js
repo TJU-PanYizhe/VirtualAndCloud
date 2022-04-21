@@ -1,6 +1,6 @@
 import VueRouter from 'vue-router'
 
-import IndexPage from '../components/IndexPage'
+import Home from '../components/Home'
 
 export default new VueRouter({
     routes: [
@@ -10,7 +10,7 @@ export default new VueRouter({
         },
         {
             path: '/index',
-            component: IndexPage
+            component: Home
         }
     ]
 })
