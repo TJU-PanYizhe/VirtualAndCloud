@@ -29,7 +29,17 @@ export default {
   },
   data() {
     return {
-      content: "print('Hello World!')",
+      content: `# -*- coding:utf-8 -*-
+import json
+
+def handler(event, context):
+    return {
+        "statusCode": 200,
+        "isBase64Encoded": False,
+        "body": json.dumps(event),
+        "headers": {"Content-Type": "application/json"},
+    }
+`,
     };
   },
 };
@@ -38,7 +48,6 @@ export default {
 <style>
 #CodeTest {
   margin-top: 27px;
-  height: 70vh;
   width: 50%;
 }
 </style>
