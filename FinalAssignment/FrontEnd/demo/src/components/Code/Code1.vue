@@ -6,26 +6,18 @@ import base64
 
 
 def handler(event, context):
-    print(" - - - - - - - ")
     encodedBody = event["body"]
     decodedBody = base64.b64decode(encodedBody)
+    jsonBody = json.loads(decodedBody)
+    print(jsonBody)
     decodedBody = decodedBody.decode()
-    dBody = decodedBody[1:-1]
 
-    print(decodedBody)
-    print(dBody)
-    list = []
-    numList = dBody.split(",")
-    print(numList)
-    # for n in numList:
-        # list.append(float(n))
-        # print(n, " - ", float(n))
-    # result = np.mean(list)
+    print(np.mean(jsonBody))
 
     return {
         "statusCode": 200,
-        "isBase64Encoded": True,
-        "body": encodedBody,
+        "isBase64Encoded": False,
+        "body": str(np.mean(jsonBody)),
         "headers": {"Content-Type": "application/json"},
     }
 `;

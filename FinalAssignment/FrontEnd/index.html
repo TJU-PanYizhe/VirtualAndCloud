@@ -11,7 +11,28 @@
 </head>
 
 <body>
-
+    <button onclick="mounted()">Test</button>
 </body>
+
+<script>
+    function mounted() {
+        var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "text/plain");
+
+        var raw = "[1,2,3]";
+
+        var requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            body: raw,
+            redirect: 'follow'
+        };
+
+        fetch("https://api.cheeseburgerim.space/NodeTest", requestOptions)
+            .then(response => response.text())
+            .then(result => console.log(result))
+            .catch(error => console.log('error', error));
+    }
+</script>
 
 </html>

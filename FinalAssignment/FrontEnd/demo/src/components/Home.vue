@@ -61,42 +61,36 @@ export default {
       }
     },
     input() {
-      /*
-{
-    "message":"12345"
-}
-      */
       if (this.text != "") {
         this.result = "Loading...";
         console.log(new Date());
-        this.Test(JSON.parse(this.text));
+        switch (this.value) {
+          case "1":
+            this.callCloudFunction(this.text, "Test");
+            break;
+          default:
+            break;
+        }
       } else {
         this.result = "Empty Input";
         console.log("empty");
       }
     },
-    Test(data) {
-      var axios = require("axios");
-      // var data = JSON.stringify({
-      //   message: "12345",
-      // });
+    callCloudFunction(data, url) {
       const _this = this;
+      const axios = require("axios");
 
-      var config = {
+      const config = {
         method: "post",
-        url: "https://api.cheeseburgerim.space/Test",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        url: "https://api.cheeseburgerim.space/" + url,
         data: data,
       };
 
       axios(config)
         .then(function (response) {
-          let data = response.data;
-          console.log(data);
-          _this.result =
-            new Date() + "\nCloud Function Result: \n" + JSON.stringify(data, null, "\t");
+          let body = response.data;
+          console.log(body);
+          _this.result = body;
         })
         .catch(function (error) {
           console.log(error);

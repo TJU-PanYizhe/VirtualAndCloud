@@ -2,7 +2,7 @@
 const FunctionList = [
   {
     key: "1",
-    value: "A",
+    value: "平均值",
   },
   {
     key: "2",

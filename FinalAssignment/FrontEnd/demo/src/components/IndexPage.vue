@@ -63,7 +63,7 @@
       </div>
     </div>
     <h1 style="margin-top: 70px">虚拟化技术与云计算 - 基于Serverless的数据预处理服务</h1>
-    <router-view></router-view>
+    <keep-alive><router-view></router-view></keep-alive>
   </div>
 </template>
 
@@ -71,6 +71,7 @@
 export default {
   name: "IndexPage",
   methods: {},
+  mounted() {},
   data() {
     return {};
   },
