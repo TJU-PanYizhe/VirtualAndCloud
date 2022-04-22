@@ -29,9 +29,13 @@ def handler(event, context):
         "headers": {"Content-Type": "application/json"},
     }
 `;
+const example = "[1,2,3,4,5,6,7]";
+const result = "4";
 
 export default {
   code,
+  example,
+  result,
 };
 </script>
 
