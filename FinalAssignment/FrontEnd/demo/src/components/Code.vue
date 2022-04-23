@@ -42,7 +42,12 @@ export default {
         case "1":
           this.content = Code0.code1.code;
           break;
-
+        case "2":
+          this.content = Code0.code2.code;
+          break;
+        case "3":
+          this.content = Code0.code3.code;
+          break;
         default:
           this.content = Code0.code;
           break;
@@ -52,8 +57,21 @@ export default {
   data() {
     return {
       options: {
+        enableBasicAutocompletion: true, // 启用基本自动完成
+        enableSnippets: true, // 启用代码段
+        enableLiveAutocompletion: true, // 启用实时自动完成
+        printMarginColumn: 30,
+        displayIndentGuides: false, // 显示参考线
+        enableEmmet: true, // 启用Emmet
+        tabSize: 6, // 标签大小
         fontSize: 18, // 设置字号
+        useWorker: true, // 使用辅助对象
         showPrintMargin: false, //去除编辑器里的竖线
+        enableMultiselect: true, //     选中多处
+        readOnly: false, // 是否只读
+        showFoldWidgets: true, // 显示折叠部件
+        fadeFoldWidgets: true, // 淡入折叠部件
+        wrap: true, //换行
       },
       itemList: Function0.FunctionList,
       content: Code0.code,

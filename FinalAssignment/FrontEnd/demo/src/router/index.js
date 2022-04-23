@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Home from '../components/Home'
 import Code from '../components/Code'
 import Document from '../components/Document'
+import About from '../components/About'
 
 export default new VueRouter({
     routes: [
@@ -15,12 +16,16 @@ export default new VueRouter({
             component: Home
         },
         {
-            path: '/Code',
+            path: '/code',
             component: Code
         },
         {
-            path: '/Document',
+            path: '/document',
             component: Document
+        },
+        {
+            path: '/about',
+            component: About
         }
     ]
 })

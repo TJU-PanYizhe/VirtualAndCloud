@@ -1,4 +1,4 @@
-> https://blog.cheeseburgerim.space/
+> https://cloud.cheeseburgerim.space/
 >
 > **/VirtualAndCloud/FinalAssignment/FrontEnd/demo/dist/**
 >

@@ -25,7 +25,7 @@
               class="menuChild"
               onclick="window.scroll({top:0,left:0,behavior:'instant'})"
             >
-              <router-link to="/Code" active-class="menuActive"
+              <router-link to="/code" active-class="menuActive"
                 ><i class="el-icon-s-tools"></i><span>代码</span></router-link
               >
             </div>
@@ -33,7 +33,7 @@
               class="menuChild"
               onclick="window.scroll({top:0,left:0,behavior:'instant'})"
             >
-              <router-link to="/Document" active-class="menuActive"
+              <router-link to="/document" active-class="menuActive"
                 ><i class="el-icon-s-management"></i><span>文档</span></router-link
               >
             </div>
@@ -49,7 +49,7 @@
               class="menuChild"
               onclick="window.scroll({top:0,left:0,behavior:'instant'})"
             >
-              <router-link to="/About" active-class="menuActive"
+              <router-link to="/about" active-class="menuActive"
                 ><i class="el-icon-s-custom"></i><span>关于</span></router-link
               >
             </div>
@@ -95,11 +95,11 @@ body {
 }
 .hoverEffect {
   border-radius: 3.7px;
-  border: 1px solid #dcdfe6;
+  border: 2px solid #dcdfe6 !important;
   /* transition: 0.5s; */
 }
 .hoverEffect:hover {
-  border-color: #007aff;
+  border-color: #007aff !important;
 }
 #navigation {
   position: fixed;

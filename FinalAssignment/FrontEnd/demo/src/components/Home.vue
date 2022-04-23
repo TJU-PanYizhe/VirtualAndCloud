@@ -22,7 +22,7 @@
     <div id="IO">
       <el-input
         type="textarea"
-        :autosize="{ minRows: 21, maxRows: 21 }"
+        :autosize="{ minRows: 11, maxRows: 11 }"
         :placeholder="example"
         v-model="text"
         size="large"
@@ -30,7 +30,7 @@
       </el-input>
       <el-input
         type="textarea"
-        :autosize="{ minRows: 21, maxRows: 21 }"
+        :autosize="{ minRows: 11, maxRows: 11 }"
         :placeholder="expected"
         v-model="result"
         size="large"
@@ -49,10 +49,22 @@ export default {
   components: {},
   methods: {
     selectionChange() {
+      this.text = "";
+      this.result = "";
+      let defaultExample = "请以JSON格式输入函数所需参数\nExample: ";
+      let defaultExpected = "Expected Result: ";
       switch (this.value) {
         case "1":
-          this.example = "请以JSON格式输入函数所需参数\nExample: " + Code0.code1.example;
-          this.expected = "Expected Result: " + Code0.code1.result;
+          this.example = defaultExample + Code0.code1.example;
+          this.expected = defaultExpected + Code0.code1.result;
+          break;
+        case "2":
+          this.example = defaultExample + Code0.code2.example;
+          this.expected = defaultExpected + Code0.code2.result;
+          break;
+        case "3":
+          this.example = defaultExample + Code0.code3.example;
+          this.expected = defaultExpected + Code0.code3.result;
           break;
         default:
           this.example = "请以JSON格式输入函数所需参数";
@@ -61,36 +73,46 @@ export default {
       }
     },
     input() {
-      if (this.text != "") {
-        this.result = "Loading...";
-        console.log(new Date());
-        switch (this.value) {
-          case "1":
-            this.callCloudFunction(this.text, "Test");
-            break;
-          default:
-            break;
+      if (this.value != "") {
+        if (this.text != "") {
+          this.result = "Loading...";
+          console.log(new Date());
+          switch (this.value) {
+            case "1":
+              this.callCloudFunction("Average");
+              break;
+            case "2":
+              this.callCloudFunction("Maximum");
+              break;
+            case "3":
+              this.callCloudFunction("Minimum");
+              break;
+            default:
+              break;
+          }
+        } else {
+          this.result = "Empty Input";
         }
       } else {
-        this.result = "Empty Input";
-        console.log("empty");
+        this.result = "Please select a function first";
       }
     },
-    callCloudFunction(data, url) {
+    callCloudFunction(url) {
       const _this = this;
       const axios = require("axios");
 
       const config = {
         method: "post",
         url: "https://api.cheeseburgerim.space/" + url,
-        data: data,
+        data: _this.text,
       };
 
       axios(config)
         .then(function (response) {
           let body = response.data;
           console.log(body);
-          _this.result = body;
+          _this.result =
+            new Date().toLocaleString() + "\nClould Function Result: \n" + body;
         })
         .catch(function (error) {
           console.log(error);
@@ -118,5 +140,6 @@ export default {
 }
 .el-input--large {
   margin: 17px;
+  font-size: 27px !important;
 }
 </style>

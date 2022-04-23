@@ -6,12 +6,8 @@ import base64
 
 def handler(event, context):
     encodedBody = event["body"]
-    decodedBody = base64.b64decode(encodedBody)
+    decodedBody = base64.b64decode(encodedBody).decode()
     jsonBody = json.loads(decodedBody)
-    print(jsonBody)
-    decodedBody = decodedBody.decode()
-
-    print(np.mean(jsonBody))
 
     return {
         "statusCode": 200,
