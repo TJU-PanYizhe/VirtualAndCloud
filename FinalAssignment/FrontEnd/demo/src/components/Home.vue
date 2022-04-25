@@ -66,6 +66,34 @@ export default {
           this.example = defaultExample + Code0.code3.example;
           this.expected = defaultExpected + Code0.code3.result;
           break;
+        case "4":
+          this.example = defaultExample + Code0.code4.example;
+          this.expected = defaultExpected + Code0.code4.result;
+          break;
+        case "5":
+          this.example = defaultExample + Code0.code5.example;
+          this.expected = defaultExpected + Code0.code5.result;
+          break;
+        case "6":
+          this.example = defaultExample + Code0.code6.example;
+          this.expected = defaultExpected + Code0.code6.result;
+          break;
+        case "7":
+          this.example = defaultExample + Code0.code7.example;
+          this.expected = defaultExpected + Code0.code7.result;
+          break;
+        case "8":
+          this.example = defaultExample + Code0.code8.example;
+          this.expected = defaultExpected + Code0.code8.result;
+          break;
+        case "9":
+          this.example = defaultExample + Code0.code9.example;
+          this.expected = defaultExpected + Code0.code9.result;
+          break;
+        case "10":
+          this.example = defaultExample + Code0.code10.example;
+          this.expected = defaultExpected + Code0.code10.result;
+          break;
         default:
           this.example = "请以JSON格式输入函数所需参数";
           this.expected = "云函数执行结果, 非必要请勿修改";
@@ -79,13 +107,34 @@ export default {
           console.log(new Date());
           switch (this.value) {
             case "1":
-              this.callCloudFunction("Average");
+              this.callCloudFunction("Average", "pyz");
               break;
             case "2":
-              this.callCloudFunction("Maximum");
+              this.callCloudFunction("Maximum", "pyz");
               break;
             case "3":
-              this.callCloudFunction("Minimum");
+              this.callCloudFunction("Minimum", "pyz");
+              break;
+            case "4":
+              this.callCloudFunction("average", "zyq");
+              break;
+            case "5":
+              this.callCloudFunction("count", "zyq");
+              break;
+            case "6":
+              this.callCloudFunction("finitebit", "zyq");
+              break;
+            case "7":
+              this.callCloudFunction("variance", "sj");
+              break;
+            case "8":
+              this.callCloudFunction("sort", "sj");
+              break;
+            case "9":
+              this.callCloudFunction("mode", "sj");
+              break;
+            case "10":
+              this.callCloudFunction("medium", "sj");
               break;
             default:
               break;
@@ -97,13 +146,15 @@ export default {
         this.result = "Please select a function first";
       }
     },
-    callCloudFunction(url) {
+    callCloudFunction(url, id) {
       const _this = this;
       const axios = require("axios");
 
+      const domain = ".api.cheeseburgerim.space/";
+
       const config = {
         method: "post",
-        url: "https://api.cheeseburgerim.space/" + url,
+        url: "https://" + id + domain + url,
         data: _this.text,
       };
 
