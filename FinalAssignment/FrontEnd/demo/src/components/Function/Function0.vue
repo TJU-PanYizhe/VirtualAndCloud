@@ -40,6 +40,38 @@ const FunctionList = [
     key: "10",
     value: "中位数",
   },
+  {
+    key: "11",
+    value: "数据替换",
+  },
+  {
+    key: "12",
+    value: "协方差",
+  },
+  {
+    key: "13",
+    value: "归一化",
+  },
+  {
+    key: "14",
+    value: "填补空缺值",
+  },
+  {
+    key: "15",
+    value: "多数组拼接",
+  },
+  {
+    key: "16",
+    value: "去除冗余",
+  },
+  {
+    key: "17",
+    value: "去除离群值",
+  },
+  {
+    key: "18",
+    value: "数据离散化",
+  },
 ];
 
 export default {

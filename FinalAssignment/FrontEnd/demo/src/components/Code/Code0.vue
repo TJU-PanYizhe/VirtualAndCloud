@@ -71,6 +71,55 @@ const code10 = {
   result: Code10.result,
 };
 
+import Code11 from "./Code11.vue";
+const code11 = {
+  code: Code11.code,
+  example: Code11.example,
+  result: Code11.result,
+};
+
+import Code12 from "./Code12.vue";
+const code12 = {
+  code: Code12.code,
+  example: Code12.example,
+  result: Code12.result,
+};
+
+import Code13 from "./Code13.vue";
+const code13 = {
+  code: Code13.code,
+  example: Code13.example,
+  result: Code13.result,
+};
+
+import Code14 from "./Code14.vue";
+const code14 = {
+  code: Code14.code,
+  example: Code14.example,
+  result: Code14.result,
+};
+
+import Code15 from "./Code15.vue";
+const code15 = {
+  code: Code15.code,
+  example: Code15.example,
+  result: Code15.result,
+};
+
+import Code16 from "./Code16.vue";
+const code16 = {
+  code: Code16.code,
+  example: Code16.example,
+  result: Code16.result,
+};
+
+import Code17 from "./Code17.vue";
+const code17 = {
+  code: Code17.code,
+  example: Code17.example,
+  result: Code17.result,
+};
+
 export default {
   code,
   code1,
@@ -83,6 +132,13 @@ export default {
   code8,
   code9,
   code10,
+  code11,
+  code12,
+  code13,
+  code14,
+  code15,
+  code16,
+  code17,
 };
 </script>
 

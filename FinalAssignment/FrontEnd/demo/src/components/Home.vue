@@ -94,6 +94,34 @@ export default {
           this.example = defaultExample + Code0.code10.example;
           this.expected = defaultExpected + Code0.code10.result;
           break;
+        case "11":
+          this.example = defaultExample + Code0.code11.example;
+          this.expected = defaultExpected + Code0.code11.result;
+          break;
+        case "12":
+          this.example = defaultExample + Code0.code12.example;
+          this.expected = defaultExpected + Code0.code12.result;
+          break;
+        case "13":
+          this.example = defaultExample + Code0.code13.example;
+          this.expected = defaultExpected + Code0.code13.result;
+          break;
+        case "14":
+          this.example = defaultExample + Code0.code14.example;
+          this.expected = defaultExpected + Code0.code14.result;
+          break;
+        case "15":
+          this.example = defaultExample + Code0.code15.example;
+          this.expected = defaultExpected + Code0.code15.result;
+          break;
+        case "16":
+          this.example = defaultExample + Code0.code16.example;
+          this.expected = defaultExpected + Code0.code16.result;
+          break;
+        case "17":
+          this.example = defaultExample + Code0.code17.example;
+          this.expected = defaultExpected + Code0.code17.result;
+          break;
         default:
           this.example = "请以JSON格式输入函数所需参数";
           this.expected = "云函数执行结果, 非必要请勿修改";
@@ -116,13 +144,13 @@ export default {
               this.callCloudFunction("Minimum", "pyz");
               break;
             case "4":
-              this.callCloudFunction("average", "zyq");
+              this.callCloudFunction("weightaverage", "pyz"); // zyq
               break;
             case "5":
-              this.callCloudFunction("count", "zyq");
+              this.callCloudFunction("count", "pyz"); // zyq
               break;
             case "6":
-              this.callCloudFunction("finitebit", "zyq");
+              this.callCloudFunction("finitebit", "pyz"); // zyq
               break;
             case "7":
               this.callCloudFunction("variance", "sj");
@@ -136,6 +164,27 @@ export default {
             case "10":
               this.callCloudFunction("medium", "sj");
               break;
+            case "11":
+              this.callCloudFunction("replace", "pyz", 11);
+              break;
+            case "12":
+              this.callCloudFunction("covariance", "sj");
+              break;
+            case "13":
+              this.callCloudFunction("normalize", "sj");
+              break;
+            case "14":
+              this.callCloudFunction("Missing_value", "sj", 14);
+              break;
+            case "15":
+              this.callCloudFunction("combine", "pyz", 15);
+              break;
+            case "16":
+              this.callCloudFunction("redundant", "pyz"); // zyq
+              break;
+            case "17":
+              this.callCloudFunction("Remove_outlier_values", "sj", 17); // zyq
+              break;
             default:
               break;
           }
@@ -146,7 +195,7 @@ export default {
         this.result = "Please select a function first";
       }
     },
-    callCloudFunction(url, id) {
+    callCloudFunction(url, id, num) {
       const _this = this;
       const axios = require("axios");
 
@@ -162,8 +211,19 @@ export default {
         .then(function (response) {
           let body = response.data;
           console.log(body);
-          _this.result =
-            new Date().toLocaleString() + "\nClould Function Result: \n" + body;
+          if (num == 11 || num == 14) {
+            let result = new Date().toLocaleString() + "\nClould Function Result: \n";
+            for (let i = 0; i < body.length; i++)
+              result = result + "[" + body[i] + "]" + "\n";
+            _this.result = result;
+          } else if (num == 15) {
+            let result = new Date().toLocaleString() + "\nClould Function Result: \n";
+            result = result + "      " + body.split("(")[1].split(", dtype")[0];
+            if (result.includes(")")) result = result.split(")")[0];
+            _this.result = result;
+          } else
+            _this.result =
+              new Date().toLocaleString() + "\nClould Function Result: \n" + body;
         })
         .catch(function (error) {
           console.log(error);

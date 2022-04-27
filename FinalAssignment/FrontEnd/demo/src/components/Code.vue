@@ -69,6 +69,27 @@ export default {
         case "10":
           this.content = Code0.code10.code;
           break;
+        case "11":
+          this.content = Code0.code11.code;
+          break;
+        case "12":
+          this.content = Code0.code12.code;
+          break;
+        case "13":
+          this.content = Code0.code13.code;
+          break;
+        case "14":
+          this.content = Code0.code14.code;
+          break;
+        case "15":
+          this.content = Code0.code15.code;
+          break;
+        case "16":
+          this.content = Code0.code16.code;
+          break;
+        case "17":
+          this.content = Code0.code17.code;
+          break;
         default:
           this.content = Code0.code;
           break;
