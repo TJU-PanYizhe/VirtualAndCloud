@@ -90,6 +90,15 @@ export default {
         case "17":
           this.content = Code0.code17.code;
           break;
+        case "18":
+          this.content = Code0.code18.code;
+          break;
+        case "19":
+          this.content = Code0.code19.code;
+          break;
+        case "20":
+          this.content = Code0.code20.code;
+          break;
         default:
           this.content = Code0.code;
           break;

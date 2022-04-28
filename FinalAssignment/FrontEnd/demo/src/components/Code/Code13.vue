@@ -20,7 +20,8 @@ def handler(event, context):
     }
 `;
 const example = `[3,4,1,2,0]`;
-const result = `[0.75, 1.0, 0.25, 0.5, 0.0]`;
+const result = `
+[0.75, 1.0, 0.25, 0.5, 0.0]`;
 
 export default {
   code,

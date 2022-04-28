@@ -12,20 +12,24 @@ def handler(event, context):
     jsonBody = json.loads(decodedBody)
 
     mean = np.mean(jsonBody)
-    std = np.std(jsonBody)
-    sigma = std * 3
+    # std = np.std(jsonBody)
+    # sigma = std * 3
     a = np.array(jsonBody, dtype=float)
     row = len(a)
     col = len(a[0])
 
     # ans = np.array()
+    tempSet = set()
     counterlist = []
-    for i in range(0, row):
-        for j in range(0, col):
-            if (a[i][j] - mean) > sigma:
-                counterlist.append(i)
-    for i in counterlist:
-        a = np.delete(a, i, 0)
+    for i in range(0, col):
+        for j in range(0, row):
+            tempSet.add(a[j][i])
+        if len(tempSet) == row:
+            counterlist.append(i)
+        tempSet = set()
+    print(counterlist)
+    for i in range(len(counterlist) - 1, -1, -1):
+        a = np.delete(a, counterlist[i], 1)
 
     # x = sorted(jsonBody)
     return {
@@ -37,15 +41,16 @@ def handler(event, context):
 `;
 const example = `
 [
-    [2,3,4,5],
-    [5,2,4,7],
-    [1,2,10000,4],
-    [10000,100000,10000,10000]
+    [1,3,5,7],
+    [2,4,6,8],
+    [3,6,9,12],
+    [2,5,7,8]
 ]`;
 const result = `
-[2,3,4,5]
-[5,2,4,7]
-[1,2,10000,4]`;
+[1,7]
+[2,8]
+[3,12]
+[2,8]`;
 
 export default {
   code,

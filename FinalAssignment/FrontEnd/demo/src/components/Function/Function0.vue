@@ -70,7 +70,15 @@ const FunctionList = [
   },
   {
     key: "18",
-    value: "数据离散化",
+    value: "等宽离散化",
+  },
+  {
+    key: "19",
+    value: "等频离散化",
+  },
+  {
+    key: "20",
+    value: "去除唯一属性",
   },
 ];
 

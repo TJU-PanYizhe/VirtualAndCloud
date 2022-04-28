@@ -122,6 +122,18 @@ export default {
           this.example = defaultExample + Code0.code17.example;
           this.expected = defaultExpected + Code0.code17.result;
           break;
+        case "18":
+          this.example = defaultExample + Code0.code18.example;
+          this.expected = defaultExpected + Code0.code18.result;
+          break;
+        case "19":
+          this.example = defaultExample + Code0.code19.example;
+          this.expected = defaultExpected + Code0.code19.result;
+          break;
+        case "20":
+          this.example = defaultExample + Code0.code20.example;
+          this.expected = defaultExpected + Code0.code20.result;
+          break;
         default:
           this.example = "请以JSON格式输入函数所需参数";
           this.expected = "云函数执行结果, 非必要请勿修改";
@@ -183,7 +195,16 @@ export default {
               this.callCloudFunction("redundant", "pyz"); // zyq
               break;
             case "17":
-              this.callCloudFunction("Remove_outlier_values", "sj", 17); // zyq
+              this.callCloudFunction("Remove_outlier_values", "sj", 17);
+              break;
+            case "18":
+              this.callCloudFunction("WidthDiscrete", "pyz", 18);
+              break;
+            case "19":
+              this.callCloudFunction("FrequencyDiscrete", "pyz", 19);
+              break;
+            case "20":
+              this.callCloudFunction("sole", "sj", 20);
               break;
             default:
               break;
@@ -211,7 +232,7 @@ export default {
         .then(function (response) {
           let body = response.data;
           console.log(body);
-          if (num == 11 || num == 14) {
+          if (num == 11 || num == 14 || num == 17 || num == 20) {
             let result = new Date().toLocaleString() + "\nClould Function Result: \n";
             for (let i = 0; i < body.length; i++)
               result = result + "[" + body[i] + "]" + "\n";
@@ -220,6 +241,10 @@ export default {
             let result = new Date().toLocaleString() + "\nClould Function Result: \n";
             result = result + "      " + body.split("(")[1].split(", dtype")[0];
             if (result.includes(")")) result = result.split(")")[0];
+            _this.result = result;
+          } else if (num == 18 || num == 19) {
+            let result = new Date().toLocaleString() + "\nClould Function Result: \n";
+            for (let key in body) result = result + key + ": " + body[key] + "\n";
             _this.result = result;
           } else
             _this.result =
