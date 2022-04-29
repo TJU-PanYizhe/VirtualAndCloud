@@ -86,8 +86,8 @@ export default {
 body {
   padding: 0;
   margin: 0;
-  /* background: ; */
   overflow-x: hidden;
+  overflow-y: scroll;
 }
 #siteBackground {
   position: fixed;

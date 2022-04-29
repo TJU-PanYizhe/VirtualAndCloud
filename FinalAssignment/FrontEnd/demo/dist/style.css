@@ -20,6 +20,11 @@
     height: 7px;
 }
 
+body::-webkit-scrollbar {
+    width: 0px;
+    height: 7px;
+}
+
 ::-webkit-scrollbar-track {
     background-color: #fff;
     border-radius: 7px;

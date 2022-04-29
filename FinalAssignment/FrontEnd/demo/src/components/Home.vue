@@ -134,6 +134,10 @@ export default {
           this.example = defaultExample + Code0.code20.example;
           this.expected = defaultExpected + Code0.code20.result;
           break;
+        case "21":
+          this.example = defaultExample + Code0.code21.example;
+          this.expected = defaultExpected + Code0.code21.result;
+          break;
         default:
           this.example = "请以JSON格式输入函数所需参数";
           this.expected = "云函数执行结果, 非必要请勿修改";
@@ -144,7 +148,7 @@ export default {
       if (this.value != "") {
         if (this.text != "") {
           this.result = "Loading...";
-          console.log(new Date());
+          // console.log(new Date());
           switch (this.value) {
             case "1":
               this.callCloudFunction("Average", "pyz");
@@ -206,6 +210,9 @@ export default {
             case "20":
               this.callCloudFunction("sole", "sj", 20);
               break;
+            case "21":
+              this.callCloudFunction("divide", "pyz", 21); // zyq
+              break;
             default:
               break;
           }
@@ -231,7 +238,7 @@ export default {
       axios(config)
         .then(function (response) {
           let body = response.data;
-          console.log(body);
+          // console.log(body);
           if (num == 11 || num == 14 || num == 17 || num == 20) {
             let result = new Date().toLocaleString() + "\nClould Function Result: \n";
             for (let i = 0; i < body.length; i++)
@@ -245,6 +252,14 @@ export default {
           } else if (num == 18 || num == 19) {
             let result = new Date().toLocaleString() + "\nClould Function Result: \n";
             for (let key in body) result = result + key + ": " + body[key] + "\n";
+            _this.result = result;
+          } else if (num == 21) {
+            let result = new Date().toLocaleString() + "\nClould Function Result: \n";
+            let arrayList = body.split("],");
+            for (let arr in arrayList) {
+              if (arr != arrayList.length - 1) result = result + arrayList[arr] + "],\n";
+              else result = result + arrayList[arr] + "\n";
+            }
             _this.result = result;
           } else
             _this.result =

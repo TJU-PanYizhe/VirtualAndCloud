@@ -6,7 +6,6 @@ import Document from '../components/Document'
 import About from '../components/About'
 
 export default new VueRouter({
-    mode: "history",
     routes: [
         {
             path: '/',

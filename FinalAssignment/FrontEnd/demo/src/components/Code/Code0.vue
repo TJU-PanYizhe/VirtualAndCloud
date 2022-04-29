@@ -141,6 +141,13 @@ const code20 = {
   result: Code20.result,
 };
 
+import Code21 from "./Code21.vue";
+const code21 = {
+  code: Code21.code,
+  example: Code21.example,
+  result: Code21.result,
+};
+
 export default {
   code,
   code1,
@@ -163,6 +170,7 @@ export default {
   code18,
   code19,
   code20,
+  code21,
 };
 </script>
 

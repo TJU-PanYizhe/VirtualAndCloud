@@ -80,6 +80,10 @@ const FunctionList = [
     key: "20",
     value: "去除唯一属性",
   },
+  {
+    key: "21",
+    value: "数据分组",
+  },
 ];
 
 export default {

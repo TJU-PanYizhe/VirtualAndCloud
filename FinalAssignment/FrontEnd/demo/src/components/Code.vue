@@ -99,6 +99,9 @@ export default {
         case "20":
           this.content = Code0.code20.code;
           break;
+        case "21":
+          this.content = Code0.code21.code;
+          break;
         default:
           this.content = Code0.code;
           break;
