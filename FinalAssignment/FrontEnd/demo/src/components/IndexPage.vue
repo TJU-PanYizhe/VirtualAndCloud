@@ -126,7 +126,7 @@ body {
   background: #fff;
   display: flex;
   justify-content: center;
-  z-index: 7;
+  z-index: 77;
 }
 #menu {
   height: 100%;
@@ -137,6 +137,10 @@ body {
   display: flex;
   align-items: center;
   transition: 0.3s;
+  z-index: 77;
+  background: #fff;
+  width: 100%;
+  border-bottom: 1px solid #007aff;
 }
 
 #menuList {
@@ -145,17 +149,20 @@ body {
   align-items: center;
   color: #000;
   height: 100%;
+  z-index: 77;
 }
 
 .menuChild {
   height: 100%;
   align-items: center;
   display: flex;
+  z-index: 77;
 }
 
 .menuChild a {
   border: 2px solid #fff;
   transition: 0.3s;
+  z-index: 77;
 }
 
 #menuList a {
@@ -164,6 +171,7 @@ body {
   color: #000;
   padding: 7px 10px;
   transition: 0.3s;
+  z-index: 77;
 }
 
 .menuChild a:hover {
@@ -173,5 +181,6 @@ body {
 
 .menuActive {
   color: #007aff !important;
+  z-index: 77;
 }
 </style>
