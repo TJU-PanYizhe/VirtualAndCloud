@@ -20,7 +20,11 @@
         ></el-button
       >
       <el-button type="warning" round>
-        <a href="https://baidu.com" target="_blank">项目报告</a></el-button
+        <a
+          href="https://gitee.com/CheeseburgerIM/VirtualAndCloud/blob/main/FinalAssignment/Doc/%E4%BA%91%E8%AE%A1%E7%AE%97%E5%A4%A7%E4%BD%9C%E4%B8%9A%E6%8A%A5%E5%91%8A.pdf"
+          target="_blank"
+          >项目报告</a
+        ></el-button
       >
       <el-button type="danger" round>
         <a
